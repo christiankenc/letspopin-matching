@@ -1,0 +1,462 @@
+Test 1: Abhay Chopra
+POST api/ai/extract-keywords
+payload:
+{ "id": "5f930e17-0505-4fc5-bb20-f808fbef0a3e" }
+
+response:
+{
+    "id": "5f930e17-0505-4fc5-bb20-f808fbef0a3e",
+    "tags": {
+        "title": [
+            "product designer",
+            "ux designer",
+            "teaching assistant",
+            "research assistant"
+        ],
+        "company": [
+            "mcmaster university",
+            "brown university"
+        ],
+        "looking_for": [
+            "hiring",
+            "user",
+            "ai",
+            "machine learning"
+        ],
+        "offering": [
+            "product design",
+            "ux",
+            "saas",
+            "ai",
+            "edtech",
+            "design systems",
+            "figma",
+            "user-centered design",
+            "research"
+        ]
+    }
+}
+
+GET api/ai/match/5f930e17-0505-4fc5-bb20-f808fbef0a3e?topk=10
+response:
+{
+    "query": "5f930e17-0505-4fc5-bb20-f808fbef0a3e",
+    "results": [
+        {
+            "id": "73349e13-b391-4f9d-8406-671a11e203c0",
+            "name": "Ashley Martis",
+            "headline": "AI x VC | Patented DiligenceGPT: AI driven due diligence",
+            "score": 0.6317022020041867,
+            "reasons": [
+                "matches what you're seeking: ai",
+                "you can help them with: ai",
+                "shared topics: ai"
+            ]
+        },
+        {
+            "id": "06a9e872-a3f4-4670-9621-b42b92adebbf",
+            "name": "Mohamed Aziz Mezlini",
+            "headline": "Senior Machine Learning Scientist, Founder",
+            "score": 0.5304145952015237,
+            "reasons": [
+                "similar roles: research assistant"
+            ]
+        },
+        {
+            "id": "054d026f-ff84-49e2-80c8-cf38cece7821",
+            "name": "Adibvafa Fallahpour",
+            "headline": "Machine Learning @ Cohere, Vector Institute, UHN, INSERM, BorealisAI | CS/Neuro @ UofT | Google Developer Group Lead | NEXT36 '25 | Founder of Canada's Largest AI Hackathon",
+            "score": 0.15088332571944185,
+            "reasons": [
+                "matches what you're seeking: ai, machine learning",
+                "shared topics: ai"
+            ]
+        },
+        {
+            "id": "88fd1843-7927-4f68-a7e0-ba89008ad889",
+            "name": "Adam White",
+            "headline": "Product | Engineering | Leader | MedTech | FinTech | Education | B2B | SaaS | Robotics | AI |  Find the hidden blockers to delivering revenue",
+            "score": 0.12238469909550825,
+            "reasons": [
+                "matches what you're seeking: hiring, ai",
+                "you can help them with: ai, saas",
+                "shared topics: saas, ai"
+            ]
+        },
+        {
+            "id": "ccc68f22-ecff-49e2-88a5-28df85a9175b",
+            "name": "Albert Lai",
+            "headline": "Pls Help - Hiring Early Stage Graphics & ML Engineers - DM! // (Was: Takes Out the Trash)",
+            "score": 0.1212642505175637,
+            "reasons": [
+                "matches what you're seeking: hiring"
+            ]
+        },
+        {
+            "id": "0bd91837-20ec-423e-9b2a-afa7d619c22e",
+            "name": "Robert Mill",
+            "headline": "Technology Consultant | AI Application Developer",
+            "score": 0.12499999999999999,
+            "reasons": [
+                "matches what you're seeking: ai, machine learning",
+                "shared topics: ai"
+            ]
+        },
+        {
+            "id": "1b71bcc6-6cb9-4ece-914f-c99ce9f1de73",
+            "name": "Amadeu Ferreira",
+            "headline": "AI Innovator | Product Leader | Startup Founder",
+            "score": 0.15095989236238605,
+            "reasons": [
+                "matches what you're seeking: ai, machine learning",
+                "shared topics: ai"
+            ]
+        },
+        {
+            "id": "4a58037e-febc-4e28-9f25-647daed27622",
+            "name": "Aravind N.",
+            "headline": "Applied ML Intern @Vector Institute | Researcher @ LAIR, UofT Robotics Institute | ECE @ University of Toronto | MITACs GRI @McMaster | IIIT-Hyderabad",
+            "score": 0.1271428571428571,
+            "reasons": [
+                "matches what you're seeking: ai, machine learning",
+                "shared topics: ai",
+                "similar roles: teaching assistant",
+                "shared orgs: mcmaster university"
+            ]
+        },
+        {
+            "id": "1b704637-4a24-4c6b-91c4-e2ec7c14f864",
+            "name": "David (Amin) Fadaeinejad",
+            "headline": "ML Researcher | 3D Computer Vision / Graphic Specialization",
+            "score": 0.10333333333333332,
+            "reasons": [
+                "matches what you're seeking: ai, machine learning",
+                "shared topics: ai",
+                "similar roles: teaching assistant, research assistant"
+            ]
+        },
+        {
+            "id": "965c031b-237e-4a7d-88a4-ac0d7fba47f1",
+            "name": "Ankit Sharma",
+            "headline": "Innovative Staff Developer with Strong AI/ML Engineering Expertise | Expert Coder with Deep Mathematical Acumen | Proven Individual Contributor & Technical Leader",
+            "score": 0.10970590765009844,
+            "reasons": [
+                "matches what you're seeking: ai, machine learning",
+                "you can help them with: ai",
+                "shared topics: ai"
+            ]
+        }
+    ]
+}
+
+Test 2: Adibvafa Fallahpour
+POST api/match/extract-keywords
+payload: 
+{ "id": "054d026f-ff84-49e2-80c8-cf38cece7821" }
+
+response:
+{
+    "id": "054d026f-ff84-49e2-80c8-cf38cece7821",
+    "tags": {
+        "title": [
+            "machine learning researcher",
+            "engineer",
+            "student",
+            "founder",
+            "lead",
+            "project collaborator",
+            "health ai researcher",
+            "co-chair",
+            "advisor"
+        ],
+        "company": [
+            "cohere",
+            "vector institute",
+            "uhn",
+            "inserm",
+            "borealisai",
+            "u of t",
+            "google",
+            "arc institute",
+            "next canada"
+        ],
+        "looking_for": [
+            "learning",
+            "ai community",
+            "machine learning",
+            "ai"
+        ],
+        "offering": [
+            "learning",
+            "machine learning",
+            "ai",
+            "nlp",
+            "ehr modeling",
+            "foundation models",
+            "biomedical ai",
+            "mentor"
+        ]
+    }
+}
+
+GET api/ai/match/5f930e17-0505-4fc5-bb20-f808fbef0a3e?topk=10
+response:
+{
+    "query": "054d026f-ff84-49e2-80c8-cf38cece7821",
+    "results": [
+        {
+            "id": "4a58037e-febc-4e28-9f25-647daed27622",
+            "name": "Aravind N.",
+            "headline": "Applied ML Intern @Vector Institute | Researcher @ LAIR, UofT Robotics Institute | ECE @ University of Toronto | MITACs GRI @McMaster | IIIT-Hyderabad",
+            "score": 0.5212932106634621,
+            "reasons": [
+                "matches what you're seeking: machine learning, ai",
+                "you can help them with: learning",
+                "shared topics: machine learning, ai",
+                "similar roles: student",
+                "shared orgs: vector institute"
+            ]
+        },
+        {
+            "id": "1b71bcc6-6cb9-4ece-914f-c99ce9f1de73",
+            "name": "Amadeu Ferreira",
+            "headline": "AI Innovator | Product Leader | Startup Founder",
+            "score": 0.47106342167642723,
+            "reasons": [
+                "matches what you're seeking: machine learning, ai",
+                "you can help them with: learning",
+                "shared topics: machine learning, ai",
+                "similar roles: founder"
+            ]
+        },
+        {
+            "id": "f137aa99-af06-4132-9e0a-1697ee818c24",
+            "name": "Athira Raji",
+            "headline": "Future Business Analyst | Mastering Analytical Skills at Schulich.",
+            "score": 0.42664315886402226,
+            "reasons": [
+                "matches what you're seeking: learning, machine learning, ai",
+                "shared topics: learning, machine learning, ai"
+            ]
+        },
+        {
+            "id": "69947713-bf57-4f83-8024-b416eb8fa4c9",
+            "name": "Ashwin Kalkar",
+            "headline": "Sr. Director at ITRG || Previously launched Cars24 in SE Asia, McKinsey alum",
+            "score": 0.4620521923769183,
+            "reasons": [
+                "matches what you're seeking: ai",
+                "you can help them with: learning",
+                "shared topics: ai"
+            ]
+        },
+        {
+            "id": "c1fbbbd3-ef4f-485f-bce8-ea699b0a880e",
+            "name": "Ann Margaret Silva",
+            "headline": "Data & AI Professional | Software Developer | ML, Python, Java (Spring Boot), SQL | GCP Professional Data Engineer",
+            "score": 0.4444899768606937,
+            "reasons": [
+                "matches what you're seeking: learning, machine learning, ai",
+                "you can help them with: learning",
+                "shared topics: learning, machine learning, ai"
+            ]
+        },
+        {
+            "id": "1b704637-4a24-4c6b-91c4-e2ec7c14f864",
+            "name": "David (Amin) Fadaeinejad",
+            "headline": "ML Researcher | 3D Computer Vision / Graphic Specialization",
+            "score": 0.43426682013876394,
+            "reasons": [
+                "matches what you're seeking: machine learning, ai",
+                "you can help them with: learning",
+                "shared topics: machine learning, ai",
+                "shared orgs: vector institute"
+            ]
+        },
+        {
+            "id": "400f6389-f6de-43db-98db-c397e30a6f40",
+            "name": "Agnes Leung, RN, CNN(C)",
+            "headline": "Registered Nurse | Master of Health Informatics Candidate",
+            "score": 0.4144847945041299,
+            "reasons": [
+                "you can help them with: learning"
+            ]
+        },
+        {
+            "id": "c10103a3-1065-472b-99fb-236a8e9e028d",
+            "name": "Behrang Mohajer",
+            "headline": "Chief Operating Officer @ LABonWEB | Simulation and Automation Tools Expert | Mechanical Engineer | PhD",
+            "score": 0.3983652803140221,
+            "reasons": [
+                "matches what you're seeking: learning, machine learning",
+                "shared topics: learning, machine learning",
+                "similar roles: engineer"
+            ]
+        },
+        {
+            "id": "e131bf49-7a1a-49d6-b85b-d6c8dcf07bde",
+            "name": "Arun Manickam",
+            "headline": "Business Technology Management Graduate  | Operations Enthusiast |  Skilled in E-commerce and Project Support | Movie Buff",
+            "score": 0.40067265805060354,
+            "reasons": [
+                "you can help them with: learning"
+            ]
+        },
+        {
+            "id": "965c031b-237e-4a7d-88a4-ac0d7fba47f1",
+            "name": "Ankit Sharma",
+            "headline": "Innovative Staff Developer with Strong AI/ML Engineering Expertise | Expert Coder with Deep Mathematical Acumen | Proven Individual Contributor & Technical Leader",
+            "score": 0.41336955367579076,
+            "reasons": [
+                "matches what you're seeking: machine learning, ai",
+                "you can help them with: ai",
+                "shared topics: machine learning, ai, nlp"
+            ]
+        }
+    ]
+}
+
+Test 3: Alejandro Pereda
+POST api/ai/extract-keywords
+payload:
+{ "id": "10de40c0-64dc-496a-8c25-bd5125e20682" }
+
+response:
+{
+    "id": "10de40c0-64dc-496a-8c25-bd5125e20682",
+    "tags": {
+        "title": [
+            "associate",
+            "venture analyst",
+            "co-founder",
+            "equity analyst",
+            "intern",
+            "founder",
+            "proprietary equity trader",
+            "sales specialist"
+        ],
+        "company": [
+            "forum ventures",
+            "viable ai",
+            "bdc",
+            "fidelity investments",
+            "bristol capital ltd.",
+            "pereda growth corp.",
+            "ryerson university",
+            "select vantage inc",
+            "best buy canada",
+            "toronto metropolitan university"
+        ],
+        "looking_for": [
+            "investment",
+            "networking"
+        ],
+        "offering": [
+            "investment"
+        ]
+    }
+}
+
+GET api/ai/match/5f930e17-0505-4fc5-bb20-f808fbef0a3e?topk=10
+response:
+{
+    "query": "10de40c0-64dc-496a-8c25-bd5125e20682",
+    "results": [
+        {
+            "id": "6dc5e46d-c45b-42a5-99fe-2e8613b76610",
+            "name": "Alex Barnes",
+            "headline": "Ask me about connecting to the Toronto AI ecosystem",
+            "score": 0.4508290941026867,
+            "reasons": [
+                "matches what you're seeking: networking"
+            ]
+        },
+        {
+            "id": "fe7fe1d7-23af-4139-a8c3-5b3582a48fd0",
+            "name": "Adeel Khan",
+            "headline": "Investor Relations @ Vosyn",
+            "score": 0.40693164413761185,
+            "reasons": [
+                "matches what you're seeking: investment, networking",
+                "you can help them with: investment",
+                "shared topics: investment"
+            ]
+        },
+        {
+            "id": "db42d06f-b2f9-4ba9-81c4-5d14b18562e1",
+            "name": "Alexa Goldhar, MBA",
+            "headline": "VC @ Antler | Early Stage VC",
+            "score": 0.4066480365351469,
+            "reasons": [
+                "matches what you're seeking: investment",
+                "you can help them with: investment",
+                "shared topics: investment"
+            ]
+        },
+        {
+            "id": "69947713-bf57-4f83-8024-b416eb8fa4c9",
+            "name": "Ashwin Kalkar",
+            "headline": "Sr. Director at ITRG || Previously launched Cars24 in SE Asia, McKinsey alum",
+            "score": 0.3884141580841662,
+            "reasons": [
+                "strong semantic fit (their offering ~ your needs: 0.46)"
+            ]
+        },
+        {
+            "id": "c74ba266-4ef1-42f4-ba93-eaa5f913a4a0",
+            "name": "Artur (Badretdinov) Kuzmin",
+            "headline": "Director of Engineering at Squire (YC16) | Conference Speaker",
+            "score": 0.34184870751333596,
+            "reasons": []
+        },
+        {
+            "id": "4d321269-8e6b-4d4f-b070-1290ac848996",
+            "name": "Cham Srinivasan",
+            "headline": "Health Strategist | Patient Advocate | Cancer Diagnosis and Treatment Advocacy | Governance | Science SME | Med Comm Professional",
+            "score": 0.34898083051353723,
+            "reasons": [
+                "strong semantic fit (their offering ~ your needs: 0.48)"
+            ]
+        },
+        {
+            "id": "73349e13-b391-4f9d-8406-671a11e203c0",
+            "name": "Ashley Martis",
+            "headline": "AI x VC | Patented DiligenceGPT: AI driven due diligence",
+            "score": 0.19781701380680247,
+            "reasons": [
+                "matches what you're seeking: investment, networking",
+                "you can help them with: investment",
+                "shared topics: investment",
+                "similar roles: founder"
+            ]
+        },
+        {
+            "id": "c9f78868-5806-4aff-977e-adb442e8097e",
+            "name": "Afeez Moradeyo",
+            "headline": "#FinTech #B2B #Cross-borderPayment #CanadaStartUp #ImpactEntrepreneur",
+            "score": 0.32804803955891937,
+            "reasons": [
+                "matches what you're seeking: networking",
+                "similar roles: founder"
+            ]
+        },
+        {
+            "id": "e131bf49-7a1a-49d6-b85b-d6c8dcf07bde",
+            "name": "Arun Manickam",
+            "headline": "Business Technology Management Graduate  | Operations Enthusiast |  Skilled in E-commerce and Project Support | Movie Buff",
+            "score": 0.31483783946631866,
+            "reasons": [
+                "shared orgs: toronto metropolitan university"
+            ]
+        },
+        {
+            "id": "d6d3efcf-f0f3-438b-b16d-c1069ac44a72",
+            "name": "Anjani Duddukuru, P.Eng. , PMP®, PMI-RMP®",
+            "headline": "Strategy, Project Management, Data Analytics - Exploring the space where technology supercharges business!",
+            "score": 0.3341287479288506,
+            "reasons": [
+                "similar roles: founder"
+            ]
+        }
+    ]
+}
