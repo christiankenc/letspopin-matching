@@ -104,9 +104,6 @@ export const getMatches = async (req, res) => {
   // get top k of matches from params if given, otherwise top 10
   const topk = Math.max(1, Math.min(50, Number(req.query.topk) || 10));
 
-  // placeholder for core goal counts (used for visuals)
-  let core_goal_counts;
-
   // try catch block to handle errors
   try {
     const results = await withConnection(async (conn) => {
@@ -139,17 +136,6 @@ export const getMatches = async (req, res) => {
         FROM profiles WHERE id <> ?`,
         [id]
       );
-
-      // get the count for our core goals
-      core_goal_counts = tallyCoreGoalsPeople(candRows);
-
-      // batch in chunks to avoid hammering the embed API
-      const CHUNK = 50;
-      for (let i = 0; i < candRows.length; i += CHUNK) {
-        await Promise.all(
-          candRows.slice(i, i + CHUNK).map((c) => ensureVectors(conn, c))
-        );
-      }
 
       // score each candidate
       const scored = [];
@@ -255,8 +241,28 @@ export const getMatches = async (req, res) => {
     });
 
     // if we get results, then send results
-    if (results) res.json({ query: id, core_goal_counts, results });
-  } catch (e) {
-    res.status(500).json({ message: "match failed", error: e.message });
+    if (results) res.json({ query: id, results });
+  } catch (error) {
+    res.status(500).json({ message: "match failed", error: error.message });
+  }
+};
+
+export const getGoalsCount = async (req, res) => {
+  try {
+    await withConnection(async (conn) => {
+      // load all users
+      const [candRows] = await conn.execute(
+        `SELECT id, name, headline, title_tags, company_tags, looking_tags, offering_tags, looking_vec, offering_vec
+        FROM profiles`
+      );
+
+      // get the count for our core goals
+      const core_goal_counts = tallyCoreGoalsPeople(candRows);
+
+      // send response
+      res.json(core_goal_counts);
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Server Error", error: error.message });
   }
 };
